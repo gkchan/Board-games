@@ -21,9 +21,17 @@ class Board():
 
         self.board[x][y] = symbol
 
+    def is_empty(self, x, y):
+        """Return whether coordinates are empty"""
+
+        return self.board[x][y] == []
+
 
 
 board = Board()
 board.print_board()
 board.put_symbol("O", 0, 1)
 board.print_board()
+print board.is_empty(1,1)
+print board.is_empty(0,1)
+
