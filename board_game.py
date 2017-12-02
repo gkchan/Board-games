@@ -28,10 +28,10 @@ class Board():
 
 
 
-board = Board()
-board.print_board()
-board.put_symbol("O", 0, 1)
-board.print_board()
-print board.is_empty(1,1)
-print board.is_empty(0,1)
+# board = Board()
+# board.print_board()
+# board.put_symbol("O", 0, 1)
+# board.print_board()
+# print board.is_empty(1,1)
+# print board.is_empty(0,1)
 
