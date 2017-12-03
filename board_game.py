@@ -16,17 +16,19 @@ class Board():
         for row in self.board:
             print row
 
-    def put_symbol(self, symbol, x, y):
+    def put_symbol(self, symbol, row, column):
         """Put symbol in board"""
 
-        self.board[x][y] = symbol
+        self.board[row][column] = symbol
 
-    def is_empty(self, x, y):
+    def is_empty(self, row, column):
         """Return whether coordinates are empty"""
 
-        return self.board[x][y] == []
+        return self.board[row][column] == []
 
 
+row = raw_input("Player 1, please choose a row.")
+column = raw_input("Player 1, please choose a column.")
 
 # board = Board()
 # board.print_board()
