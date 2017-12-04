@@ -27,13 +27,15 @@ class Board():
         return self.board[row][column] == []
 
 
-row = raw_input("Player 1, please choose a row.")
-column = raw_input("Player 1, please choose a column.")
+board = Board()
+board.print_board()
+row = int(raw_input("Player 1, please choose a row."))
+column = int(raw_input("Player 1, please choose a column."))
+if board.is_empty(row, column):
+    board.put_symbol("O", row, column)
+else:
+    pass
+board.print_board()
 
-# board = Board()
-# board.print_board()
-# board.put_symbol("O", 0, 1)
-# board.print_board()
-# print board.is_empty(1,1)
-# print board.is_empty(0,1)
+
 
