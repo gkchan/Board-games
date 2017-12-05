@@ -29,13 +29,25 @@ class Board():
 
 board = Board()
 board.print_board()
-row = int(raw_input("Player 1, please choose a row."))
-column = int(raw_input("Player 1, please choose a column."))
-if board.is_empty(row, column):
-    board.put_symbol("O", row, column)
-else:
-    pass
-board.print_board()
+
+
+while True: 
+    row = int(raw_input("Player 1, please choose a row."))
+    column = int(raw_input("Player 1, please choose a column."))
+    if board.is_empty(row, column):
+        board.put_symbol("O", row, column)
+        board.print_board()
+    else:
+        pass
+    row = int(raw_input("Player 2, please choose a row."))
+    column = int(raw_input("Player 2, please choose a column."))
+    if board.is_empty(row, column):
+        board.put_symbol("X", row, column)
+        board.print_board()
+        
+
+
+
 
 
 
