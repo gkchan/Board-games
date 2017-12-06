@@ -6,7 +6,7 @@ class Board():
 
         self.board = []
         for x in range(3):
-            self.board.append(3*[[]])
+            self.board.append(3*[""])
         # for row in self.board:
         #     print row
 
@@ -24,7 +24,7 @@ class Board():
     def is_empty(self, row, column):
         """Return whether coordinates are empty"""
 
-        return self.board[row][column] == []
+        return self.board[row][column] == ""
 
 
 board = Board()
@@ -39,12 +39,20 @@ while True:
         board.print_board()
     else:
         pass
-    row = int(raw_input("Player 2, please choose a row."))
-    column = int(raw_input("Player 2, please choose a column."))
-    if board.is_empty(row, column):
-        board.put_symbol("X", row, column)
-        board.print_board()
+    # row = int(raw_input("Player 2, please choose a row."))
+    # column = int(raw_input("Player 2, please choose a column."))
+    # if board.is_empty(row, column):
+    #     board.put_symbol("X", row, column)
+    #     board.print_board()
         
+
+    # if "" not in board.board[0]
+    print set(board.board[0])
+    for i in range(0, 3):
+        if set(board.board[i]) == set(["O"]) or set(board.board[i]) == set(["X"]):
+            print "win"
+    
+
 
 
 
