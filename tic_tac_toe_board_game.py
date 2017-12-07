@@ -46,11 +46,20 @@ while True:
     #     board.print_board()
         
 
-    # if "" not in board.board[0]
-    print set(board.board[0])
+    # horizontal win:
+    # # if "" not in board.board[0]
+    # print set(board.board[0])
+    # for i in range(0, 3):
+    #     if set(board.board[i]) == set(["O"]) or set(board.board[i]) == set(["X"]):
+    #         print "win"
+
+
+    vert_set = set()
     for i in range(0, 3):
-        if set(board.board[i]) == set(["O"]) or set(board.board[i]) == set(["X"]):
-            print "win"
+        vert_set.add(board.board[i][0])
+    print vert_set
+
+  
     
 
 
