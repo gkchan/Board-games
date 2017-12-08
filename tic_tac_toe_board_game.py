@@ -56,8 +56,12 @@ while True:
 
     vert_set = set()
     for i in range(0, 3):
-        vert_set.add(board.board[i][0])
-    print vert_set
+        for j in range(0, 3):
+            vert_set.add(board.board[j][i])
+        print vert_set
+        if vert_set == set(["O"]) or vert_set == set(["X"]):
+            print "vertical win"
+        vert_set = set()
 
   
     
