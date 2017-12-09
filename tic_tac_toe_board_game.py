@@ -54,14 +54,27 @@ while True:
     #         print "win"
 
 
-    vert_set = set()
-    for i in range(0, 3):
-        for j in range(0, 3):
-            vert_set.add(board.board[j][i])
-        print vert_set
-        if vert_set == set(["O"]) or vert_set == set(["X"]):
-            print "vertical win"
-        vert_set = set()
+    # vert_set = set()
+    # for i in range(0, 3):
+    #     for j in range(0, 3):
+    #         vert_set.add(board.board[j][i])
+    #     print vert_set
+    #     if vert_set == set(["O"]) or vert_set == set(["X"]):
+    #         print "vertical win"
+    #     vert_set = set()
+
+    diagonal_set = set()
+    diagonal_set.add(board.board[0][0])
+    diagonal_set.add(board.board[1][1])
+    diagonal_set.add(board.board[2][2])
+    if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+        print "diagonal win"
+
+    
+
+
+
+
 
   
     
