@@ -63,14 +63,21 @@ while True:
     #         print "vertical win"
     #     vert_set = set()
 
+    # diagonal_set = set()
+    # diagonal_set.add(board.board[0][0])
+    # diagonal_set.add(board.board[1][1])
+    # diagonal_set.add(board.board[2][2])
+    # if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+    #     print "diagonal win"
+
+
     diagonal_set = set()
-    diagonal_set.add(board.board[0][0])
+    diagonal_set.add(board.board[0][2])
     diagonal_set.add(board.board[1][1])
-    diagonal_set.add(board.board[2][2])
+    diagonal_set.add(board.board[2][0])
     if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
         print "diagonal win"
 
-    
 
 
 
