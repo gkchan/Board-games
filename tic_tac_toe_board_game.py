@@ -31,6 +31,48 @@ class Board():
 
         # if index not in range(3):
 
+    def win_game(self):
+        """Returns if game is won"""
+
+        # win = False
+
+        # horizontal win:
+        # if "" not in board.board[0]
+        print set(self.board[0])
+        for i in range(0, 3):
+            if set(self.board[i]) == set(["O"]) or set(self.board[i]) == set(["X"]):
+                print "win"
+                return True
+
+        vert_set = set()
+        for i in range(0, 3):
+            for j in range(0, 3):
+                vert_set.add(self.board[j][i])
+            print vert_set
+            if vert_set == set(["O"]) or vert_set == set(["X"]):
+                print "vertical win"
+                return True
+                
+            vert_set = set()
+
+        diagonal_set = set()
+        diagonal_set.add(self.board[0][0])
+        diagonal_set.add(self.board[1][1])
+        diagonal_set.add(self.board[2][2])
+        if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+            print "diagonal win"
+            return True
+        
+        diagonal_set = set()
+        diagonal_set.add(self.board[0][2])
+        diagonal_set.add(self.board[1][1])
+        diagonal_set.add(self.board[2][0])
+        if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+            print "diagonal win"
+            return True
+
+
+
 
 
 
@@ -56,6 +98,10 @@ while True:
     else:
         pass
 
+    if board.win_game():
+        print "You have won."
+        break
+
     row = int(raw_input("Player 2, please choose a row."))
     while row not in range(3):
         row = int(raw_input("Player 2, please choose a row."))
@@ -66,39 +112,13 @@ while True:
     if board.is_empty(row, column):
         board.put_symbol("X", row, column)
         board.print_board()
+
+    if board.win_game():
+        print "You have won."
+        break
         
 
-    # horizontal win:
-    # if "" not in board.board[0]
-    print set(board.board[0])
-    for i in range(0, 3):
-        if set(board.board[i]) == set(["O"]) or set(board.board[i]) == set(["X"]):
-            print "win"
-
-
-    vert_set = set()
-    for i in range(0, 3):
-        for j in range(0, 3):
-            vert_set.add(board.board[j][i])
-        print vert_set
-        if vert_set == set(["O"]) or vert_set == set(["X"]):
-            print "vertical win"
-        vert_set = set()
-
-    diagonal_set = set()
-    diagonal_set.add(board.board[0][0])
-    diagonal_set.add(board.board[1][1])
-    diagonal_set.add(board.board[2][2])
-    if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
-        print "diagonal win"
-
-
-    diagonal_set = set()
-    diagonal_set.add(board.board[0][2])
-    diagonal_set.add(board.board[1][1])
-    diagonal_set.add(board.board[2][0])
-    if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
-        print "diagonal win"
+  
 
 
 
