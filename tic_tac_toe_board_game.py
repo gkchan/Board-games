@@ -36,42 +36,51 @@ class Board():
 
         # win = False
 
-        # horizontal win:
-        # if "" not in board.board[0]
-        print set(self.board[0])
-        for i in range(0, 3):
-            if set(self.board[i]) == set(["O"]) or set(self.board[i]) == set(["X"]):
-                print "win"
-                return True
+        def horizontal_win():
+            """Return whether there is horizontal win"""
 
-        vert_set = set()
-        for i in range(0, 3):
-            for j in range(0, 3):
-                vert_set.add(self.board[j][i])
-            print vert_set
-            if vert_set == set(["O"]) or vert_set == set(["X"]):
-                print "vertical win"
-                return True
-                
+            # if "" not in board.board[0]
+            print set(self.board[0])
+            for i in range(0, 3):
+                if set(self.board[i]) == set(["O"]) or set(self.board[i]) == set(["X"]):
+                    print "horizontal win"
+                    return True
+
+        def vertical_win():
+            """Return whether there is vertical win"""
+
             vert_set = set()
+            for i in range(0, 3):
+                for j in range(0, 3):
+                    vert_set.add(self.board[j][i])
+                print vert_set
+                if vert_set == set(["O"]) or vert_set == set(["X"]):
+                    print "vertical win"
+                    return True
+                    
+                vert_set = set()
 
-        diagonal_set = set()
-        diagonal_set.add(self.board[0][0])
-        diagonal_set.add(self.board[1][1])
-        diagonal_set.add(self.board[2][2])
-        if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
-            print "diagonal win"
+        def diagonal_win():
+            """Return whether there is diagonal win"""
+
+            diagonal_set = set()
+            diagonal_set.add(self.board[0][0])
+            diagonal_set.add(self.board[1][1])
+            diagonal_set.add(self.board[2][2])
+            if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+                print "diagonal win"
+                return True
+            
+            diagonal_set = set()
+            diagonal_set.add(self.board[0][2])
+            diagonal_set.add(self.board[1][1])
+            diagonal_set.add(self.board[2][0])
+            if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+                print "diagonal win"
+                return True
+
+        if horizontal_win() or vertical_win() or diagonal_win():
             return True
-        
-        diagonal_set = set()
-        diagonal_set.add(self.board[0][2])
-        diagonal_set.add(self.board[1][1])
-        diagonal_set.add(self.board[2][0])
-        if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
-            print "diagonal win"
-            return True
-
-
 
 
 
