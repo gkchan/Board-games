@@ -7,8 +7,6 @@ class Board():
         self.board = []
         for x in range(3):
             self.board.append(3*[""])
-        # for row in self.board:
-        #     print row
 
     def print_board(self):
         """Prints board"""
@@ -33,8 +31,6 @@ class Board():
 
     def win_game(self):
         """Returns if game is won"""
-
-        # win = False
 
         def horizontal_win():
             """Return whether there is horizontal win"""
