@@ -59,10 +59,7 @@ class Board():
         def diagonal_win():
             """Return whether there is diagonal win"""
 
-            diagonal_set = set()
-            diagonal_set.add(self.board[0][0])
-            diagonal_set.add(self.board[1][1])
-            diagonal_set.add(self.board[2][2])
+            diagonal_set = { self.board[0][0], self.board[1][1], self.board[2][2] }
             if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
                 print "diagonal win"
                 return True
@@ -107,21 +104,23 @@ while True:
         print "You have won."
         break
 
-    row = int(raw_input("Player 2, please choose a row."))
-    while row not in range(3):
-        row = int(raw_input("Player 2, please choose a row."))
+    # row = int(raw_input("Player 2, please choose a row."))
+    # while row not in range(3):
+    #     row = int(raw_input("Player 2, please choose a row."))
     
-    column = int(raw_input("Player 2, please choose a column."))
-    while column not in range(3):
-        column = int(raw_input("Player 2, please choose a column."))
-    if board.is_empty(row, column):
-        board.put_symbol("X", row, column)
-        board.print_board()
+    # column = int(raw_input("Player 2, please choose a column."))
+    # while column not in range(3):
+    #     column = int(raw_input("Player 2, please choose a column."))
+    # if board.is_empty(row, column):
+    #     board.put_symbol("X", row, column)
+    #     board.print_board()
 
-    if board.win_game():
-        print "You have won."
-        break
-        
+    # if board.win_game():
+    #     print "You have won."
+    #     break
+
+
+
 
   
 
