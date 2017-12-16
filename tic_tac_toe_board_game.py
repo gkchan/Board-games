@@ -61,15 +61,12 @@ class Board():
 
             diagonal_set = { self.board[0][0], self.board[1][1], self.board[2][2] }
             if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
-                print "diagonal win"
+                print "diagonal win 1"
                 return True
             
-            diagonal_set = set()
-            diagonal_set.add(self.board[0][2])
-            diagonal_set.add(self.board[1][1])
-            diagonal_set.add(self.board[2][0])
+            diagonal_set = { self.board[0][2], self.board[1][1], self.board[2][0] }
             if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
-                print "diagonal win"
+                print "diagonal win 2"
                 return True
 
         if horizontal_win() or vertical_win() or diagonal_win():
