@@ -70,6 +70,7 @@ class Board():
                 return True
 
         if horizontal_win() or vertical_win() or diagonal_win():
+            print "You have won."
             return True
 
 
@@ -98,7 +99,6 @@ while True:
         pass
 
     if board.win_game():
-        print "You have won."
         break
 
     # row = int(raw_input("Player 2, please choose a row."))
@@ -113,7 +113,6 @@ while True:
     #     board.print_board()
 
     # if board.win_game():
-    #     print "You have won."
     #     break
 
 
