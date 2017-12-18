@@ -83,13 +83,17 @@ column = None
 
 # do while?
 
+def ask_input(player, choice):
+    return int(raw_input("Player {}, please choose a {}.".format(player, choice)))
+
 while True: 
-    row = int(raw_input("Player 1, please choose a row."))
+    row = ask_input("1", "row")
+    # row = int(raw_input("Player 1, please choose a row."))
     while row not in range(3):
         # print "Input not valid"
         row = int(raw_input("Player 1, please choose a row."))
-
-    column = int(raw_input("Player 1, please choose a column."))
+    column = ask_input("1", "column")
+    # column = int(raw_input("Player 1, please choose a column."))
     while column not in range(3):
         column = int(raw_input("Player 1, please choose a column."))
     if board.is_empty(row, column):
