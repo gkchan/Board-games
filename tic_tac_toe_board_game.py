@@ -75,7 +75,6 @@ class Board():
 
 
 
-
 board = Board()
 board.print_board()
 row = None
@@ -84,57 +83,33 @@ column = None
 # do while?
 
 def ask_input(player, choice):
+    """Ask for player input"""
+
     return int(raw_input("Player {}, please choose a {}.".format(player, choice)))
 
-while True: 
-    row = ask_input("1", "row")
-    # row = int(raw_input("Player 1, please choose a row."))
-    while row not in range(3):
+def play_game_turn(player, symbol):
+    """Play a turn of the game"""
+
+    row, column = None, None
+    while row not in range(3) or row == None:
+        row = ask_input(player, "row")
         # print "Input not valid"
-        row = int(raw_input("Player 1, please choose a row."))
-    column = ask_input("1", "column")
-    # column = int(raw_input("Player 1, please choose a column."))
-    while column not in range(3):
-        column = int(raw_input("Player 1, please choose a column."))
+    while column not in range(3) or column == None:
+        column = ask_input(player, "column")
+
     if board.is_empty(row, column):
-        board.put_symbol("O", row, column)
+        board.put_symbol(symbol, row, column)
         board.print_board()
     else:
         pass
 
+
+while True:  
+    play_game_turn("1", "O")
     if board.win_game():
         break
-
-    # row = int(raw_input("Player 2, please choose a row."))
-    # while row not in range(3):
-    #     row = int(raw_input("Player 2, please choose a row."))
-    
-    # column = int(raw_input("Player 2, please choose a column."))
-    # while column not in range(3):
-    #     column = int(raw_input("Player 2, please choose a column."))
-    # if board.is_empty(row, column):
-    #     board.put_symbol("X", row, column)
-    #     board.print_board()
-
-    # if board.win_game():
-    #     break
-
-
-
-
-  
-
-
-
-
-
-
-  
-    
-
-
-
-
-
+    play_game_turn("2", "X")
+    if board.win_game():
+        break
 
 
