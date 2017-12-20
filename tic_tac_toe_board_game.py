@@ -77,8 +77,7 @@ class Board():
 
 board = Board()
 board.print_board()
-row = None
-column = None
+
 
 # do while?
 
@@ -101,7 +100,8 @@ def play_game_turn(player, symbol):
         board.put_symbol(symbol, row, column)
         board.print_board()
     else:
-        pass
+        print "That spot has been taken. Please try again."
+        play_game_turn(player, symbol)
 
 
 while True:  
