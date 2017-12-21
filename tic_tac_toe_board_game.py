@@ -81,20 +81,20 @@ board.print_board()
 
 # do while?
 
-def ask_input(player, choice):
+def ask_input(player, row_or_column):
     """Ask for player input"""
 
-    return int(raw_input("Player {}, please choose a {}.".format(player, choice)))
+    while row_or_column not in range(3) or row_or_column == None:
+        return int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
 
 def play_game_turn(player, symbol):
     """Play a turn of the game"""
 
     row, column = None, None
-    while row not in range(3) or row == None:
-        row = ask_input(player, "row")
-        # print "Input not valid"
-    while column not in range(3) or column == None:
-        column = ask_input(player, "column")
+
+    row = ask_input(player, "row")
+    # print "Input not valid"
+    column = ask_input(player, "column")
 
     if board.is_empty(row, column):
         board.put_symbol(symbol, row, column)
