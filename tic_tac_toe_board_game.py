@@ -84,8 +84,12 @@ board.print_board()
 def ask_input(player, row_or_column):
     """Ask for player input"""
 
-    while row_or_column not in range(3) or row_or_column == None:
-        return int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
+    row_or_column = int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
+    while row_or_column not in range(3):
+        print "Please choose a number within the range."    
+        row_or_column = int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
+    return row_or_column
+
 
 def play_game_turn(player, symbol):
     """Play a turn of the game"""
@@ -93,7 +97,6 @@ def play_game_turn(player, symbol):
     row, column = None, None
 
     row = ask_input(player, "row")
-    # print "Input not valid"
     column = ask_input(player, "column")
 
     if board.is_empty(row, column):
