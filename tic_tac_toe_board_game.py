@@ -75,10 +75,6 @@ class Board():
 
 
 
-board = Board()
-board.print_board()
-
-
 # do while?
 
 def ask_input(player, row_or_column):
@@ -106,6 +102,13 @@ def play_game_turn(player, symbol):
         print "That spot has been taken. Please try again."
         play_game_turn(player, symbol)
 
+
+print "Welcome to your game."
+
+board = Board()
+board.print_board()
+
+# player1 = raw_input("Player 1, please input your name?")
 
 while True:  
     play_game_turn("1", "O")
