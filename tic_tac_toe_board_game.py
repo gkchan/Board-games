@@ -1,3 +1,5 @@
+placeholder = ""
+
 class Board():
     """Creates a game board"""
 
@@ -6,7 +8,7 @@ class Board():
 
         self.board = []
         for x in range(3):
-            self.board.append(3*[""])
+            self.board.append(3*[placeholder])
 
     def print_board(self):
         """Prints board"""
@@ -22,7 +24,7 @@ class Board():
     def is_empty(self, row, column):
         """Return whether coordinates are empty"""
 
-        return self.board[row][column] == ""
+        return self.board[row][column] == placeholder
 
     # def is_valid(self, index):
     #     """Check if index is valid"""
