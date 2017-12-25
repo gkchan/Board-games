@@ -38,7 +38,6 @@ class Board():
             """Return whether there is horizontal win"""
 
             # if "" not in board.board[0]
-            print set(self.board[0])
             for i in range(0, 3):
                 if set(self.board[i]) == set(["O"]) or set(self.board[i]) == set(["X"]):
                     print "horizontal win"
@@ -51,11 +50,9 @@ class Board():
             for i in range(0, 3):
                 for j in range(0, 3):
                     vert_set.add(self.board[j][i])
-                print vert_set
                 if vert_set == set(["O"]) or vert_set == set(["X"]):
                     print "vertical win"
-                    return True
-                    
+                    return True 
                 vert_set = set()
 
         def diagonal_win():
@@ -121,3 +118,4 @@ while True:
         break
 
 
+# change string symbols
