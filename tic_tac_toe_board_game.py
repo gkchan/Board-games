@@ -1,4 +1,6 @@
 placeholder = ""
+o_symbol = "O"
+x_symbol = "X"
 
 class Board():
     """Creates a game board"""
@@ -14,7 +16,9 @@ class Board():
         """Prints board"""
 
         for row in self.board:
-            print row
+            for symbol in row:
+                print [symbol],
+            print "\n"
 
     def put_symbol(self, symbol, row, column):
         """Put symbol in board"""
@@ -39,7 +43,7 @@ class Board():
 
             # if "" not in board.board[0]
             for i in range(0, 3):
-                if set(self.board[i]) == set(["O"]) or set(self.board[i]) == set(["X"]):
+                if set(self.board[i]) == set([o_symbol]) or set(self.board[i]) == set([x_symbol]):
                     print "horizontal win"
                     return True
 
@@ -50,7 +54,7 @@ class Board():
             for i in range(0, 3):
                 for j in range(0, 3):
                     vert_set.add(self.board[j][i])
-                if vert_set == set(["O"]) or vert_set == set(["X"]):
+                if vert_set == set([o_symbol]) or vert_set == set([x_symbol]):
                     print "vertical win"
                     return True 
                 vert_set = set()
@@ -59,12 +63,12 @@ class Board():
             """Return whether there is diagonal win"""
 
             diagonal_set = { self.board[0][0], self.board[1][1], self.board[2][2] }
-            if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+            if diagonal_set == set([o_symbol]) or diagonal_set == set([x_symbol]):
                 print "diagonal win 1"
                 return True
             
             diagonal_set = { self.board[0][2], self.board[1][1], self.board[2][0] }
-            if diagonal_set == set(["O"]) or diagonal_set == set(["X"]):
+            if diagonal_set == set([o_symbol]) or diagonal_set == set([x_symbol]):
                 print "diagonal win 2"
                 return True
 
@@ -110,10 +114,10 @@ board.print_board()
 # player1 = raw_input("Player 1, please input your name?")
 
 while True:  
-    play_game_turn("1", "O")
+    play_game_turn("1", o_symbol)
     if board.win_game():
         break
-    play_game_turn("2", "X")
+    play_game_turn("2", x_symbol)
     if board.win_game():
         break
 
