@@ -1,6 +1,7 @@
 placeholder = ""
 o_symbol = "O"
 x_symbol = "X"
+board_size = 3
 
 class Board():
     """Creates a game board"""
@@ -9,8 +10,8 @@ class Board():
         """Creates board"""
 
         self.board = []
-        for x in range(3):
-            self.board.append(3*[placeholder])
+        for x in range(board_size):
+            self.board.append(board_size*[placeholder])
 
     def print_board(self):
         """Prints board"""
@@ -42,7 +43,7 @@ class Board():
             """Return whether there is horizontal win"""
 
             # if "" not in board.board[0]
-            for i in range(0, 3):
+            for i in range(0, board_size):
                 if set(self.board[i]) == set([o_symbol]) or set(self.board[i]) == set([x_symbol]):
                     print "horizontal win"
                     return True
@@ -51,8 +52,8 @@ class Board():
             """Return whether there is vertical win"""
 
             vert_set = set()
-            for i in range(0, 3):
-                for j in range(0, 3):
+            for i in range(0, board_size):
+                for j in range(0, board_size):
                     vert_set.add(self.board[j][i])
                 if vert_set == set([o_symbol]) or vert_set == set([x_symbol]):
                     print "vertical win"
@@ -84,7 +85,7 @@ def ask_input(player, row_or_column):
     """Ask for player input"""
 
     row_or_column = int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
-    while row_or_column not in range(3):
+    while row_or_column not in range(board_size):
         print "Please choose a number within the range."    
         row_or_column = int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
     return row_or_column
