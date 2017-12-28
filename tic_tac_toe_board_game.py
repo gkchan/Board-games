@@ -2,6 +2,8 @@ placeholder = ""
 o_symbol = "O"
 x_symbol = "X"
 board_size = 3
+player1 = "1"
+player2 = "2"
 
 class Board():
     """Creates a game board"""
@@ -94,7 +96,7 @@ def ask_input(player, row_or_column):
 def play_game_turn(player, symbol):
     """Play a turn of the game"""
 
-    row, column = None, None
+    # row, column = None, None
 
     row = ask_input(player, "row")
     column = ask_input(player, "column")
@@ -112,15 +114,17 @@ print "Welcome to your game."
 board = Board()
 board.print_board()
 
-# player1 = raw_input("Player 1, please input your name?")
+player1 = raw_input("Player 1, please input your name?") or player1
+player2 = raw_input("Player 2, please input your name?") or player2
 
 while True:  
-    play_game_turn("1", o_symbol)
+    play_game_turn(player1, o_symbol)
     if board.win_game():
         break
-    play_game_turn("2", x_symbol)
+    play_game_turn(player2, x_symbol)
     if board.win_game():
         break
 
 
 # change string symbols
+# empty row, column bug
