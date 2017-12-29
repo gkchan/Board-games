@@ -83,14 +83,23 @@ class Board():
 
 # do while?
 
-def ask_input(player, row_or_column):
+def ask_input_helper(player, row_or_column):
     """Ask for player input"""
 
-    row_or_column = int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
-    while row_or_column not in range(board_size):
+    try:
+        return int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
+    except ValueError:
+        return ask_input_helper(player, row_or_column)
+
+
+def ask_input(player, row_or_column):
+    """Verify input is within range of the board"""
+
+    row_or_column_number = ask_input_helper(player, row_or_column)
+    while row_or_column_number not in range(board_size):
         print "Please choose a number within the range."    
-        row_or_column = int(raw_input("Player {}, please choose a {}.".format(player, row_or_column)))
-    return row_or_column
+        row_or_column_number = ask_input_helper(player, row_or_column)
+    return row_or_column_number
 
 
 def play_game_turn(player, symbol):
