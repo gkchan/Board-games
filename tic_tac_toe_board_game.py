@@ -80,6 +80,22 @@ class Board():
             return True
 
 
+    def notify_no_win(self):
+        """Tells when board is full and no one wins"""
+
+        board_set = set()
+        for row in self.board:
+            board_set.update(row)
+            print row, board_set
+        if "" not in board_set:
+            print "Game is over. No one won."
+            return True
+
+
+
+
+
+
 
 # do while?
 
@@ -123,6 +139,8 @@ print "Welcome to your game."
 board = Board()
 board.print_board()
 
+# print notify_no_win
+
 player1 = raw_input("Player 1, please input your name?") or player1
 player2 = raw_input("Player 2, please input your name?") or player2
 
@@ -130,10 +148,20 @@ while True:
     play_game_turn(player1, o_symbol)
     if board.win_game():
         break
+    if board.notify_no_win():
+        break
     play_game_turn(player2, x_symbol)
     if board.win_game():
         break
+    if board.notify_no_win():
+        break
+
+
+
 
 
 # change string symbols
 # empty row, column bug
+# game over
+# no win
+# replay?
