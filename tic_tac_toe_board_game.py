@@ -86,10 +86,15 @@ class Board():
         board_set = set()
         for row in self.board:
             board_set.update(row)
-            print row, board_set
+            # print row, board_set
         if "" not in board_set:
-            print "Game is over. No one won."
-            return True
+            play_again = raw_input("Game is over. No one won. Would you like to play again? Yes/No ")
+            if play_again == "Yes":
+                return True
+            elif play_again == "No":
+                return False
+            else:
+                notify_no_win(self)
 
 
 
@@ -139,22 +144,51 @@ print "Welcome to your game."
 board = Board()
 board.print_board()
 
+def create_new_board():
+    """Create a new board from class"""
+
+    board = Board()
+    board.print_board()
+
+# create_new_board()
+
 # print notify_no_win
 
 player1 = raw_input("Player 1, please input your name?") or player1
 player2 = raw_input("Player 2, please input your name?") or player2
 
+# def play_game():
+#     """Play game"""
+
 while True:  
     play_game_turn(player1, o_symbol)
     if board.win_game():
         break
-    if board.notify_no_win():
+    replay = board.notify_no_win()
+    if replay == True:
+        board = Board()
+        board.print_board()
+        # create_new_board()
+        # play_game()
+        continue
+    elif replay == False:
         break
     play_game_turn(player2, x_symbol)
     if board.win_game():
         break
-    if board.notify_no_win():
+    replay = board.notify_no_win()
+    if replay == True:
+        board = Board()
+        board.print_board()
+        # create_new_board()
+        # play_game()
+        continue
+    elif replay == False:
         break
+       
+
+# play_game()
+
 
 
 
@@ -165,3 +199,4 @@ while True:
 # game over
 # no win
 # replay?
+# win, play again
