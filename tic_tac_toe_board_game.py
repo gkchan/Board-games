@@ -156,7 +156,14 @@ player2 = raw_input("Player 2, please input your name?") or player2
 while True:  
     play_game_turn(player1, o_symbol)
     if board.win_game():
-        break
+        answer = raw_input("Would you like to play again? Yes/No ")
+        if answer == "Yes":
+            board = Board()
+            board.print_board()
+            # play_game()
+            continue
+        elif answer == "No":
+            break
     replay = board.notify_no_win()
     if replay == True:
         board = Board()
@@ -165,9 +172,18 @@ while True:
         continue
     elif replay == False:
         break
+
     play_game_turn(player2, x_symbol)
     if board.win_game():
-        break
+        answer = raw_input("Would you like to play again? Yes/No ")
+        if answer == "Yes":
+            board = Board()
+            board.print_board()
+            # play_game()
+            continue
+        elif answer == "No":
+            break
+ 
     replay = board.notify_no_win()
     if replay == True:
         board = Board()
