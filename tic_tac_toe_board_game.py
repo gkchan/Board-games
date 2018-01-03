@@ -80,6 +80,18 @@ class Board():
             return True
 
 
+    def ask_play_again(self):
+        """Asks whether player wants to play again"""
+
+        answer = raw_input("Would you like to play again? Yes/No ")
+        if answer == "Yes":
+            return True
+        elif answer == "No":
+            return False
+        else:
+            ask_play_again(self)
+
+
     def notify_no_win(self):
         """Tells when board is full and no one wins"""
 
@@ -94,7 +106,6 @@ class Board():
                 return False
             else:
                 notify_no_win(self)
-
 
 
 
@@ -146,6 +157,9 @@ print "Welcome to your game."
 
 board = Board()
 board.print_board()
+
+# board.ask_play_again()
+
 
 player1 = raw_input("Player 1, please input your name?") or player1
 player2 = raw_input("Player 2, please input your name?") or player2
