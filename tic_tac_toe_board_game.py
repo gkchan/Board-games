@@ -89,7 +89,7 @@ class Board():
         elif answer == "No":
             return False
         else:
-            ask_play_again(self)
+            return self.ask_play_again()
 
 
     def notify_no_win(self):
@@ -170,13 +170,14 @@ player2 = raw_input("Player 2, please input your name?") or player2
 while True:  
     play_game_turn(player1, o_symbol)
     if board.win_game():
-        answer = raw_input("Would you like to play again? Yes/No ")
-        if answer == "Yes":
+        answer = board.ask_play_again()
+        # answer = raw_input("Would you like to play again? Yes/No ")
+        if answer == True:
             board = Board()
             board.print_board()
             # play_game()
             continue
-        elif answer == "No":
+        elif answer == False:
             break
     replay = board.notify_no_win()
     if replay == True:
@@ -189,15 +190,16 @@ while True:
 
     play_game_turn(player2, x_symbol)
     if board.win_game():
-        answer = raw_input("Would you like to play again? Yes/No ")
-        if answer == "Yes":
+        answer = board.ask_play_again()
+        # answer = raw_input("Would you like to play again? Yes/No ")
+        if answer == True:
             board = Board()
             board.print_board()
             # play_game()
             continue
-        elif answer == "No":
+        elif answer == False:
             break
- 
+      
     replay = board.notify_no_win()
     if replay == True:
         board = Board()
@@ -221,3 +223,4 @@ while True:
 # no win
 # replay?
 # win, play again
+# fix play again
