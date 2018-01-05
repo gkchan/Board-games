@@ -150,7 +150,7 @@ def create_new_board():
     board = Board()
     board.print_board()
 
-# create_new_board()
+
 
 
 print "Welcome to your game."
@@ -158,7 +158,7 @@ print "Welcome to your game."
 board = Board()
 board.print_board()
 
-# board.ask_play_again()
+
 
 
 player1 = raw_input("Player 1, please input your name?") or player1
