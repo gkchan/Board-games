@@ -99,13 +99,18 @@ class Board():
         for row in self.board:
             board_set.update(row)
         if "" not in board_set:
-            play_again = raw_input("Game is over. No one won. Would you like to play again? Yes/No ")
-            if play_again == "Yes":
-                return True
-            elif play_again == "No":
-                return False
-            else:
-                notify_no_win(self)
+            print "Game is over. No one won."
+            return True
+            # self.ask_play_again()
+
+
+            # play_again = raw_input("Game is over. No one won. Would you like to play again? Yes/No ")
+            # if play_again == "Yes":
+            #     return True
+            # elif play_again == "No":
+            #     return False
+            # else:
+            #     notify_no_win(self)
 
 
 
@@ -179,14 +184,16 @@ while True:
             continue
         elif answer == False:
             break
-    replay = board.notify_no_win()
-    if replay == True:
-        board = Board()
-        board.print_board()
-        # play_game()
-        continue
-    elif replay == False:
-        break
+    if board.notify_no_win():
+        answer = board.ask_play_again()
+        # answer = raw_input("Would you like to play again? Yes/No ")
+        if answer == True:
+            board = Board()
+            board.print_board()
+            # play_game()
+            continue
+        elif answer == False:
+            break
 
     play_game_turn(player2, x_symbol)
     if board.win_game():
@@ -200,15 +207,19 @@ while True:
         elif answer == False:
             break
       
-    replay = board.notify_no_win()
-    if replay == True:
-        board = Board()
-        board.print_board()
+    if board.notify_no_win():
+        answer = board.ask_play_again()
+        # answer = raw_input("Would you like to play again? Yes/No ")
+        if answer == True:
+            board = Board()
+            board.print_board()
             # play_game()
-        continue
-    elif replay == False:
-        break
-       
+            continue
+        elif answer == False:
+            break  
+  
+
+# combine
 
 # play_game()
 
