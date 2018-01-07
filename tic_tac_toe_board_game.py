@@ -157,14 +157,10 @@ def create_new_board():
 
 
 
-
 print "Welcome to your game."
 
 board = Board()
 board.print_board()
-
-
-
 
 player1 = raw_input("Player 1, please input your name?") or player1
 player2 = raw_input("Player 2, please input your name?") or player2
@@ -174,59 +170,28 @@ player2 = raw_input("Player 2, please input your name?") or player2
 
 while True:  
     play_game_turn(player1, o_symbol)
-    if board.win_game():
+    if board.win_game() or board.notify_no_win():
         answer = board.ask_play_again()
-        # answer = raw_input("Would you like to play again? Yes/No ")
         if answer == True:
             board = Board()
             board.print_board()
-            # play_game()
             continue
         elif answer == False:
             break
-    if board.notify_no_win():
-        answer = board.ask_play_again()
-        # answer = raw_input("Would you like to play again? Yes/No ")
-        if answer == True:
-            board = Board()
-            board.print_board()
-            # play_game()
-            continue
-        elif answer == False:
-            break
-
     play_game_turn(player2, x_symbol)
-    if board.win_game():
+    if board.win_game() or board.notify_no_win():
         answer = board.ask_play_again()
-        # answer = raw_input("Would you like to play again? Yes/No ")
         if answer == True:
             board = Board()
             board.print_board()
-            # play_game()
             continue
         elif answer == False:
             break
-      
-    if board.notify_no_win():
-        answer = board.ask_play_again()
-        # answer = raw_input("Would you like to play again? Yes/No ")
-        if answer == True:
-            board = Board()
-            board.print_board()
-            # play_game()
-            continue
-        elif answer == False:
-            break  
   
 
 # combine
 
-# play_game()
-
-
-
-
-
+# check win for only new symbols
 
 # change string symbols
 # empty row, column bug
