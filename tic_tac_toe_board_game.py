@@ -168,8 +168,15 @@ player2 = raw_input("Player 2, please input your name?") or player2
 # def play_game():
 #     """Play game"""
 
-while True:  
-    play_game_turn(player1, o_symbol)
+turn = 1
+
+while True:
+    if turn == 1:
+        play_game_turn(player1, o_symbol)
+        turn = 2
+    elif turn == 2:
+        play_game_turn(player2, x_symbol)
+        turn = 1
     if board.win_game() or board.notify_no_win():
         answer = board.ask_play_again()
         if answer == True:
@@ -178,15 +185,7 @@ while True:
             continue
         elif answer == False:
             break
-    play_game_turn(player2, x_symbol)
-    if board.win_game() or board.notify_no_win():
-        answer = board.ask_play_again()
-        if answer == True:
-            board = Board()
-            board.print_board()
-            continue
-        elif answer == False:
-            break
+
   
 
 # combine
