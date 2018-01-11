@@ -165,8 +165,7 @@ board.print_board()
 player1 = raw_input("Player 1, please input your name?") or player1
 player2 = raw_input("Player 2, please input your name?") or player2
 
-# def play_game():
-#     """Play game"""
+
 
 turn = 1
 
