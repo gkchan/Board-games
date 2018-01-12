@@ -101,17 +101,7 @@ class Board():
         if "" not in board_set:
             print "Game is over. No one won."
             return True
-            # self.ask_play_again()
-
-
-            # play_again = raw_input("Game is over. No one won. Would you like to play again? Yes/No ")
-            # if play_again == "Yes":
-            #     return True
-            # elif play_again == "No":
-            #     return False
-            # else:
-            #     notify_no_win(self)
-
+       
 
 
 # do while?
