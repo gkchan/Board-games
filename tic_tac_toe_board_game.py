@@ -44,7 +44,6 @@ class Board():
         def horizontal_win():
             """Return whether there is horizontal win"""
 
-            # if "" not in board.board[0]
             for i in range(0, board_size):
                 if set(self.board[i]) == set([o_symbol]) or set(self.board[i]) == set([x_symbol]):
                     print "horizontal win"
@@ -175,7 +174,7 @@ while True:
         elif answer == False:
             break
 
-  
+# win alogoithm only needs to test new symbol added
 
 # combine
 
