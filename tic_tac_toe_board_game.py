@@ -174,16 +174,9 @@ while True:
         elif answer == False:
             break
 
-# win alogoithm only needs to test new symbol added
-
-# combine
 
 # check win for only new symbols
 
 # change string symbols
-# empty row, column bug
-# game over
-# no win
-# replay?
-# win, play again
-# fix play again
+
+# play again
