@@ -33,11 +33,6 @@ class Board():
 
         return self.board[row][column] == placeholder
 
-    # def is_valid(self, index):
-    #     """Check if index is valid"""
-
-        # if index not in range(3):
-
     def win_game(self):
         """Returns if game is won"""
 
