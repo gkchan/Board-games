@@ -5,6 +5,7 @@ board_size = 3
 player1 = "1"
 player2 = "2"
 
+
 class Board():
     """Creates a game board"""
 
@@ -150,7 +151,6 @@ player1 = raw_input("Player 1, please input your name?") or player1
 player2 = raw_input("Player 2, please input your name?") or player2
 
 
-
 turn = 1
 
 while True:
@@ -169,9 +169,7 @@ while True:
         elif answer == False:
             break
 
-
+# make bigger board
 # check win for only new symbols
-
 # change string symbols
-
 # play again
