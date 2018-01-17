@@ -60,7 +60,11 @@ class Board():
         def diagonal_win():
             """Return whether there is diagonal win"""
 
-            diagonal_set = { self.board[0][0], self.board[1][1], self.board[2][2] }
+            diagonal_set = set()
+            for i in range(0, board_size):
+                diagonal_set.add(self.board[i][i]) 
+
+            # diagonal_set = { self.board[0][0], self.board[1][1], self.board[2][2] }
             if diagonal_set == set([o_symbol]) or diagonal_set == set([x_symbol]):
                 print "diagonal win 1"
                 return True
