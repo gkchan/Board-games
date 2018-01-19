@@ -64,7 +64,6 @@ class Board():
             for i in range(0, board_size):
                 diagonal_set.add(self.board[i][i]) 
 
-            # diagonal_set = { self.board[0][0], self.board[1][1], self.board[2][2] }
             if diagonal_set == set([o_symbol]) or diagonal_set == set([x_symbol]):
                 print "diagonal win 1"
                 return True
@@ -73,7 +72,6 @@ class Board():
             for i in range(0, board_size):
                 diagonal_set.add(self.board[i][board_size - 1 - i])
 
-            # diagonal_set = { self.board[0][2], self.board[1][1], self.board[2][0] }
             if diagonal_set == set([o_symbol]) or diagonal_set == set([x_symbol]):
                 print "diagonal win 2"
                 return True
